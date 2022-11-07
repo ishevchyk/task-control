@@ -1,0 +1,50 @@
+<ng-template placeholder></ng-template>
+<div class="container">
+  <form
+    class="form"
+    #authForm="ngForm"
+    (ngSubmit)="onSubmit(authForm)"
+  >
+    <div class="form_item">
+      <label for="email">E-mail or username</label>
+      <input
+        type="email"
+        id="email"
+        class=""
+        ngModel
+        name="email"
+        required
+        #email="ngModel"
+      />
+      <span *ngIf="!email.valid && email.touched" class="help-block">* please enter a valid email address or username</span>
+    </div>
+    <div class="form_item">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        class=""
+        ngModel
+        name="password"
+        required
+        minlength="6"
+        #pass="ngModel"
+      />
+      <span *ngIf="!pass.valid && pass.touched" class="help-block">* password at least 6 char long is required</span>
+    </div>
+    <div class="form_item">
+      <button
+        class=""
+        type="submit"
+        [disabled]="!authForm.valid"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+  <div class="switcher">
+    <p>Doesn't have an account? Register <a routerLink="/auth/signup">here</a>.</p>
+  </div>
+</div>
+
+

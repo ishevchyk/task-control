@@ -1,0 +1,42 @@
+.boards-container{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2vh;
+  //row-gap: 1vh;
+  justify-items: center;
+  align-items: center;
+
+
+}
+
+.board{
+  width: 12vw;
+  height: 12vw;
+  background: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 2px 2px #eed7f5;
+  border-radius: 12px;
+
+  text-align: center;
+  &:hover {
+    transform: scale(115%);
+    cursor: pointer;
+  }
+  &_new-btn {
+    background-color: #f1eda5;
+    border-radius: 8px;
+    padding: 5%;
+    border: none;
+    box-shadow: 0 1px 2px 2px #eed7f5;
+    color: #c17fef;
+
+    &:hover {
+      transform: scale(125%);
+      cursor: pointer;
+    }
+
+  }
+
+}

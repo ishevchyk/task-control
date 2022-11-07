@@ -1,0 +1,30 @@
+<router-outlet></router-outlet>
+<div class="container">
+  <div class="workspace-actions">
+    <div class="workspace-actions_search">
+<!--      <label for="board-search">Workspace</label>-->
+<!--      <input type="search" id="board-search">-->
+      <h3>Workspace</h3>
+    </div>
+    <div class="workspace-actions_filter">
+      <li class="filter-item">
+        <label for="filter">Filter</label>
+        <select id="filter" name="filter">
+          <option value="board-name">Board Name</option>
+          <option value="task-name">Task name</option>
+        </select>
+      </li>
+      <li class="filter-item">
+        <label for="sort">Sort by</label>
+        <select id="sort" name="sort">
+          <option value="asc">ASC</option>
+          <option value="dsc">DeSC</option>
+        </select>
+      </li>
+    </div>
+  </div>
+  <div class="workspace-boards">
+    <app-boards-list></app-boards-list>
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="container">
+  <form [formGroup]="newBoardForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form_item">
+      <label for="name">Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        id="name"
+        class="form-control"
+        #name
+        (focus)="onFocus(name)"
+      >
+    </div>
+    <div class="form_item">
+      <label for="description">Description</label>
+      <input
+        formControlName="description"
+        type="text"
+        id="description"
+        class="form-control"
+        #descr
+        (focus)="onFocus(descr)"
+      >
+    </div>
+    <div class="form_actions">
+      <button type="submit" class="form_actions_btn" (click)="onSubmit()">Add</button>
+      <button type="button" class="form_actions_btn" (click)="onClose()">Cancel</button>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="board-page">
+<!--  <div class="title">-->
+  <div class="board-page_title" *ngIf="!showForm">
+    <h3>{{board.name}}</h3>
+    <img src="https://img.icons8.com/sf-black-filled/32/9ec1f4/edit.png" (click)="initForm()"/>
+
+  </div>
+  <form [formGroup]="editBoardForm" (ngSubmit)="onSubmit()" *ngIf="showForm" class="board-page_form">
+      <input
+        formControlName="name"
+        type="text"
+        id="name"
+        class="form-control"
+      >
+      <input
+        formControlName="description"
+        type="text"
+        id="description"
+        class="form-control"
+      >
+    <div class="board-page_form-actions">
+      <button type="submit">Update</button>
+      <button type="button" (click)="hideForm()">Cancel</button>
+    </div>
+  </form>
+  <div class="lists">
+    <app-lists-list></app-lists-list>
+  </div>
+</div>

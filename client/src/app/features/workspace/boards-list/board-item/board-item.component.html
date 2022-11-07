@@ -1,0 +1,15 @@
+<div class="card">
+<div class="board-item">
+  <div class="front">
+    <p>{{board.name}}</p>
+  </div>
+  <div class="back">
+    <div class="back_text" (click)="toBoardPage(board)">
+      <p><span>Description:</span> {{board.description}}</p>
+      <p><span>Num of lists:</span> {{listsLength}}</p>
+      <p><span>Data creation:</span> {{boardDate}}</p>
+    </div>
+    <button (click)="deleteBoard()" class="back_btn">delete</button>
+  </div>
+</div>
+</div>

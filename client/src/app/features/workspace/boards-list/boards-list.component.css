@@ -1,0 +1,37 @@
+.boards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2vh;
+  justify-items: center;
+  align-items: center;
+}
+
+.board {
+  width: 12vw;
+  height: 12vw;
+  background: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 2px 2px #eed7f5;
+  border-radius: 12px;
+  text-align: center;
+}
+.board:hover {
+  transform: scale(115%);
+  cursor: pointer;
+}
+.board_new-btn {
+  background-color: #f1eda5;
+  border-radius: 8px;
+  padding: 5%;
+  border: none;
+  box-shadow: 0 1px 2px 2px #eed7f5;
+  color: #c17fef;
+}
+.board_new-btn:hover {
+  transform: scale(125%);
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=boards-list.component.css.map */

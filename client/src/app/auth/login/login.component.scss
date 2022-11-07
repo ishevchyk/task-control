@@ -1,0 +1,102 @@
+
+@mixin login-form {
+  border: 1px solid #eed7f5;
+  box-shadow: 0 2px 3px #eed7f5;
+  background-color: lightblue;
+  border-radius: 15px;
+  color: #8f0180;
+  padding: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    input{
+      padding: 2%;
+      border-radius: 6px;
+      border: 1px solid #eed7f5;
+      box-shadow: 0 2px 3px #eed7f5;
+      outline-color: #eed7f5;
+    }
+    button{
+      background-color: #eed7f5;
+      width: 60%;
+      padding: 2%;
+      align-self: center;
+      border-radius: 8px;
+      border: #eed7f5;
+      box-shadow: 0 2px 3px #eed7f5;
+      color: #8f0180;
+      font-size: 1em;
+      letter-spacing: .05em;
+      &:hover {
+        background-image: linear-gradient(90deg, #a7d0dd 0%, #9ec1f4 49%, #a7d0dd 80%);
+        animation: slidebg 5s linear infinite;
+        letter-spacing: .2em;
+        color: whitesmoke;
+        cursor: pointer;
+      }
+    }
+
+  }
+  .help-block {
+    color: red;
+    font-size: .7em;
+  }
+
+}
+@mixin switcher {
+  color: #8f0180;
+  a{
+    color: lightblue;
+    &:hover{
+      cursor: pointer;
+      color: #8f0180;
+    }
+  }
+}
+
+
+@media (min-width: 912px) {
+  .container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1vh;
+
+    .form {
+      width: 40%;
+      @include login-form;
+    }
+    .switcher {
+      @include switcher;
+    }
+  }
+}
+
+@media (max-width: 912px) {
+  .container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1vh;
+
+    .form {
+      width: 90%;
+      @include login-form;
+    }
+    .switcher {
+      @include switcher;
+    }
+  }
+}

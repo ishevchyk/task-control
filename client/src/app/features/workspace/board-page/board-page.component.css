@@ -1,0 +1,59 @@
+.board-page {
+  background-color: rgba(241, 237, 165, 0.6);
+  display: flex;
+  flex-direction: column;
+  padding: 1% 10%;
+  height: 100%;
+  width: 100vw;
+}
+.board-page_title {
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+  padding: 1%;
+  font-size: 1.3em;
+  color: deeppink;
+  letter-spacing: 0.1em;
+  border: 1px dotted deeppink;
+  border-radius: 10px;
+}
+.board-page_title h3 {
+  width: 100%;
+}
+.board-page_title img:hover {
+  cursor: pointer;
+  scale: 110%;
+}
+.board-page_form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+  width: 30%;
+}
+.board-page_form .form-control {
+  color: deeppink;
+  padding: 2%;
+  width: 100%;
+  border-radius: 8px;
+  letter-spacing: 0.1em;
+  border: 1px solid #9ec1f4;
+  background-color: transparent;
+}
+.board-page_form-actions {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1vw;
+}
+.board-page_form-actions button {
+  background-color: #9ec1f4;
+  color: deeppink;
+  border: none;
+  border-radius: 4px;
+  padding: 2%;
+}
+.board-page_form-actions button:hover {
+  cursor: pointer;
+  scale: 105%;
+}
+
+/*# sourceMappingURL=board-page.component.css.map */

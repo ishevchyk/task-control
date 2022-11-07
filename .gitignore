@@ -1,0 +1,5 @@
+server/node_modules
+client/.gitignore
+.idea
+client/.vscode
+.DS_Store

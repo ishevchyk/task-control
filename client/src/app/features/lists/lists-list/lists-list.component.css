@@ -1,0 +1,24 @@
+.lists {
+  padding: 2% 0;
+  display: flex;
+  column-gap: 3%;
+  height: 100%;
+}
+.lists_list {
+  width: 20vw;
+}
+.lists .add-list_btn {
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 191, 255, 0.31);
+  text-align: left;
+  border-radius: 8px;
+  border: 1px solid deepskyblue;
+  color: whitesmoke;
+  font-size: 1.2em;
+}
+.lists .add-list_btn:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=lists-list.component.css.map */

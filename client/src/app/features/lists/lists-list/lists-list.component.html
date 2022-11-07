@@ -1,0 +1,20 @@
+<div class="lists">
+  <app-list-item *ngFor="let list of lists" [list]="list" class="lists_list"></app-list-item>
+  <div class="lists_list add-list">
+    <button type="button" *ngIf="!showForm" (click)="initForm()" class="add-list_btn"> + Add another list</button>
+    <form [formGroup]="addListForm" (ngSubmit)="onSubmit()" *ngIf="showForm">
+      <div>
+        <input
+          type="text"
+          placeholder="Enter list title"
+          formControlName="name"
+        >
+      </div>
+      <div>
+        <button type="submit">Add list</button>
+        <button type="button" (click)="hideForm()">X</button>
+      </div>
+    </form>
+  </div>
+</div>
+

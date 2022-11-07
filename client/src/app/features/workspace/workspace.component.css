@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15%;
+  height: 100%;
+  width: 100vw;
+}
+.container .workspace-actions {
+  justify-self: center;
+  padding: 5% 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.container .workspace-actions_search {
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  color: #613986;
+  text-shadow: 0 2px 6px #c17fef;
+}
+.container .workspace-actions_filter {
+  list-style: none;
+  display: grid;
+  width: 40%;
+  grid-template-columns: 50% 50%;
+}
+.container .workspace-actions_filter .filter-item {
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  column-gap: 2%;
+  width: 100%;
+}
+
+/*# sourceMappingURL=workspace.component.css.map */

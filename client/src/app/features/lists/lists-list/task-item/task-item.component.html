@@ -1,0 +1,24 @@
+<li [ngClass]="!show ? 'simpleView' : 'editView'" class="task">
+    <div class="task-header">
+        <img src="https://img.icons8.com/sf-black-filled/32/9ec1f4/edit.png" class="edit" *ngIf="!show" (click)="onshow()"/>
+        <button type="button" (click)="onshow()" *ngIf="show">x</button>
+    </div>
+    <div class="task-main">
+      <div class="comments">
+        <p>comment1</p>
+        <p>comment2</p>
+      </div>
+      <div class="content">
+        <textarea name="" [disabled]="!show" [ngClass]="!show ? 'enabled' : 'disabled'">{{task.content}}</textarea>
+        <div *ngIf="show" class="actions">
+          <button type="button" (click)="onDeleteTask()">Delete Task</button>
+        </div>
+      </div>
+      <div class="badges">
+        <p>{{taskDate}}</p>
+        <button type="button">
+          <img src="https://img.icons8.com/sf-ultralight-filled/25/ff1493/menu-2.png"/>
+        </button>
+      </div>
+    </div>
+</li>

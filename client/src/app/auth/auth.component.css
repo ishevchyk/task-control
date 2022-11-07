@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  height: 100%;
+  padding: 0 25%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #9ec1f4;
+}
+.container .auth {
+  display: grid;
+  grid-template-rows: 60% 40%;
+  row-gap: 85%;
+  width: 100%;
+}
+.container .auth_signup {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10%;
+}
+.container .auth_signup h2 {
+  color: #a91a9c;
+  text-shadow: 0 2px 2px #eac5ff;
+  font-size: 4em;
+  font-weight: bolder;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+.container .auth_signup h6 {
+  font-size: 1.5em;
+  color: #f8e1e7;
+  text-shadow: 0 1px 2px #b651f6;
+}
+.container .auth_signup_button {
+  width: 25%;
+  height: 100%;
+  background-color: rgba(163, 29, 151, 0.14);
+  border: 1px solid #a31d97;
+  border-radius: 15px;
+  padding: 1%;
+  font-size: 1em;
+  color: #a31d97;
+  text-shadow: 0 2px 2px #eac5ff;
+}
+.container .auth_signup_button:hover {
+  color: #f8e1e7;
+  background-color: rgba(163, 29, 151, 0.47);
+  letter-spacing: 0.05em;
+}
+
+/*# sourceMappingURL=auth.component.css.map */
