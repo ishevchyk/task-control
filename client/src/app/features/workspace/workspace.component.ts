@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output,} from '@angular/core';
 import {Store} from '@ngrx/store';
 
 import * as fromApp from '../../store/app.reducer';
@@ -14,6 +14,19 @@ export class WorkspaceComponent implements OnInit {
   constructor(
     private store: Store<fromApp.AppState>
   ) { }
+
+  filterValue: string = '';
+  sortValue: string = '';
+  sortOrder: string = '';
+  @Output() changed: EventEmitter<string> = new EventEmitter<string>()
+
+  onTextChange(){
+    this.changed.emit(this.filterValue)
+    console.log(this.filterValue)
+  }
+  changeSortOrder(el: HTMLButtonElement){
+    this.sortOrder = el.innerText.toLowerCase()
+  }
 
 
   ngOnInit(){

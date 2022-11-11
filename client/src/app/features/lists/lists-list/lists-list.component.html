@@ -1,5 +1,15 @@
-<div class="lists">
-  <app-list-item *ngFor="let list of lists" [list]="list" class="lists_list"></app-list-item>
+<div class="lists"
+     data-list="data-list"
+>
+
+  <app-list-item
+    *ngFor="let list of lists;"
+    [list]="list"
+    [id]="list._id"
+    class="lists_list"
+    draggable="true"
+  ></app-list-item>
+
   <div class="lists_list add-list">
     <button type="button" *ngIf="!showForm" (click)="initForm()" class="add-list_btn"> + Add another list</button>
     <form [formGroup]="addListForm" (ngSubmit)="onSubmit()" *ngIf="showForm">
@@ -16,5 +26,6 @@
       </div>
     </form>
   </div>
+
 </div>
 

@@ -12,7 +12,7 @@ import * as AuthActions from '../../auth/store/auth.actions';
 export class HeaderComponent implements OnInit {
 
   isLoggedIn: boolean = false;
-  name: string;
+  username: string;
   private userSub: Subscription;
 
   constructor(
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
       .subscribe(user => {
         if(user) {
           this.isLoggedIn = !!user;
-          this.name = user.firstname;
+          this.username = user.username;
         }
         console.log(this.isLoggedIn)
       })

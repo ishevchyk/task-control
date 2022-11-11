@@ -6,30 +6,66 @@
   height: 100%;
   width: 100vw;
 }
-.container .workspace-actions {
+.container .workspace {
   justify-self: center;
   padding: 5% 0;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  column-gap: 5%;
 }
-.container .workspace-actions_search {
+.container .workspace_title {
   font-size: 2em;
   letter-spacing: 0.1em;
-  color: #613986;
+  color: deeppink;
   text-shadow: 0 2px 6px #c17fef;
 }
-.container .workspace-actions_filter {
+.container .workspace_actions {
+  width: 100%;
   list-style: none;
   display: grid;
-  width: 40%;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 60%;
+  align-items: center;
 }
-.container .workspace-actions_filter .filter-item {
-  align-self: center;
-  justify-self: center;
+.container .workspace_actions .search-action input {
+  padding: 2%;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1em;
+  border-bottom: 2px solid #f1eda5;
+  color: #c17fef;
+  letter-spacing: 0.05em;
+}
+.container .workspace_actions .search-action input::placeholder {
+  color: #613986;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+.container .workspace_actions .search-action input:focus {
+  outline-color: #f1eda5;
+}
+.container .workspace_actions .search-action input:focus::placeholder {
+  visibility: hidden;
+}
+.container .workspace_actions .sort-action {
+  justify-self: flex-end;
+  width: 100%;
   display: flex;
-  column-gap: 2%;
+  justify-content: flex-end;
+  column-gap: 5%;
+}
+.container .workspace_actions .sort-action_item {
+  padding: 1%;
+  background-color: transparent;
+}
+.container .workspace_actions .sort-action_item.sort-select {
+  border: 1px solid deepskyblue;
+}
+.container .workspace_actions .sort-action_item.sort-btn {
+  border: 1px solid deeppink;
+}
+.container .workspace-boards {
   width: 100%;
 }
 

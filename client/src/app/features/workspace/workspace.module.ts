@@ -5,7 +5,7 @@ import {WorkspaceRoutingModule} from "./workspace-routing.module";
 import { BoardsListComponent } from './boards-list/boards-list.component';
 import { BoardItemComponent } from './boards-list/board-item/board-item.component';
 import { NewBoardComponent } from './boards-list/new-board/new-board.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../../shared/shared.module";
 import { BoardPageComponent } from './board-page/board-page.component';
 import {ListsModule} from "../lists/lists.module";
@@ -20,12 +20,13 @@ import {ListsModule} from "../lists/lists.module";
     NewBoardComponent,
     BoardPageComponent,
   ],
-  imports: [
-    CommonModule,
-    WorkspaceRoutingModule,
-    ReactiveFormsModule,
-    SharedModule,
-    ListsModule
-  ]
+    imports: [
+        CommonModule,
+        WorkspaceRoutingModule,
+        ReactiveFormsModule,
+        SharedModule,
+        ListsModule,
+        FormsModule
+    ]
 })
 export class WorkspaceModule { }

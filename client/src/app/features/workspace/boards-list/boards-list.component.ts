@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import { Subscription, map } from 'rxjs';
 import {Board} from "../../../shared/models/board.model";
 import { Store } from '@ngrx/store';
@@ -18,11 +18,18 @@ export class BoardsListComponent implements OnInit {
   @ViewChild(PlaceholderDirective, {static: false}) newBoardHost: PlaceholderDirective;
   private closeSub: Subscription;
 
+  @Input() searchedBoard: string = '';
+
+  @Input() sortValue: string = '';
+  @Input() sortOrder: string = '';
+
+
   constructor(
     private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit(): void {
+    console.log(this.searchedBoard)
     this.subscription = this.store
       .select('workspace')
       .pipe(
@@ -34,10 +41,13 @@ export class BoardsListComponent implements OnInit {
           this.boards = boards;
         }
       )
+
   }
   onAddNewBoard(){
     this.showForm()
   }
+
+
   // onEditBoard(board: Board){
   //   const viewContainerRef = this.newBoardHost.viewContainerRef;
   //   const componentRef = viewContainerRef.createComponent(NewBoardComponent);

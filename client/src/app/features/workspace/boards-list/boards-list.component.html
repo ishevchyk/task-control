@@ -4,7 +4,7 @@
     <button type="button" class="board_new-btn" (click)="onAddNewBoard()">Add new board</button>
   </div>
     <app-board-item
-      *ngFor="let board of boards;
+      *ngFor="let board of boards | filter: searchedBoard: 'name' | sort: sortValue: sortOrder;
       let i = index;"
       [board]="board"
       [index]="i"

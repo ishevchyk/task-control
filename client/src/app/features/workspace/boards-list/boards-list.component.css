@@ -4,9 +4,9 @@
   gap: 2vh;
   justify-items: center;
   align-items: center;
+  width: 100%;
 }
-
-.board {
+.boards-container .board {
   width: 12vw;
   height: 12vw;
   background: lightblue;
@@ -17,11 +17,11 @@
   border-radius: 12px;
   text-align: center;
 }
-.board:hover {
+.boards-container .board:hover {
   transform: scale(115%);
   cursor: pointer;
 }
-.board_new-btn {
+.boards-container .board_new-btn {
   background-color: #f1eda5;
   border-radius: 8px;
   padding: 5%;
@@ -29,7 +29,7 @@
   box-shadow: 0 1px 2px 2px #eed7f5;
   color: #c17fef;
 }
-.board_new-btn:hover {
+.boards-container .board_new-btn:hover {
   transform: scale(125%);
   cursor: pointer;
 }

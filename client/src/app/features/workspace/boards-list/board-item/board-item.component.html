@@ -4,12 +4,15 @@
     <p>{{board.name}}</p>
   </div>
   <div class="back">
-    <div class="back_text" (click)="toBoardPage(board)">
-      <p><span>Description:</span> {{board.description}}</p>
-      <p><span>Num of lists:</span> {{listsLength}}</p>
-      <p><span>Data creation:</span> {{boardDate}}</p>
+    <div class="back_content" (click)="toBoardPage(board)">
+    <div class="content-text">
+      <span id="descr">Description:</span>
+      <p>{{board.description}}</p>
+      <p><span>#Lists:</span> {{listsLength}}</p>
+      <p class="data-creation">{{boardDate}}</p>
     </div>
-    <button (click)="deleteBoard()" class="back_btn">delete</button>
+    <button class="content-btn"(click)="deleteBoard()">remove</button>
+  </div>
   </div>
 </div>
 </div>

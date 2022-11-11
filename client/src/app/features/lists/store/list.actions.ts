@@ -11,8 +11,18 @@ export const EDIT_LIST = '[List] Edit List';
 export const DELETE_LIST = '[List] Delete List';
 export const START_ADDING_TASK = '[List] Start Adding Task';
 export const ADD_TASK = '[List] Add Task';
-export const DELETE_TASK = '[List] Delete Task'
+export const DELETE_TASK = '[List] Delete Task';
+export const DRAG_AND_DROP = '[List] Drag And Drop';
 
+
+export class DragAndDrop implements Action{
+  readonly type = DRAG_AND_DROP;
+  constructor(public payload: {
+    listId: string,
+    boardId: string,
+  }) {
+  }
+}
 
 export class FetchLists implements Action {
   readonly type = FETCH_LISTS;

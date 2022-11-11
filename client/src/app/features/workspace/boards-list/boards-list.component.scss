@@ -5,11 +5,10 @@
   //row-gap: 1vh;
   justify-items: center;
   align-items: center;
+  width: 100%;
 
 
-}
-
-.board{
+.board {
   width: 12vw;
   height: 12vw;
   background: lightblue;
@@ -20,10 +19,12 @@
   border-radius: 12px;
 
   text-align: center;
+
   &:hover {
     transform: scale(115%);
     cursor: pointer;
   }
+
   &_new-btn {
     background-color: #f1eda5;
     border-radius: 8px;
@@ -38,5 +39,5 @@
     }
 
   }
-
+}
 }

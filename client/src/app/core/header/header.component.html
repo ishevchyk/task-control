@@ -13,7 +13,7 @@
         <a href="" class="header_nav_item" routerLink="auth/signup">Signup</a>
       </li>
       <!--      <li *ngIf="isLoggedIn"><a href="" class="header_nav_item" routerLink="profile">Profile</a></li>-->
-      <li *ngIf="isLoggedIn"><a href="" class="header_nav_item" routerLink="profile">{{name}}</a></li>
+      <li *ngIf="isLoggedIn"><a href="" class="header_nav_item" routerLink="profile">{{username}}</a></li>
       <li *ngIf="isLoggedIn"><a href="" class="header_nav_item" (click)="onLogout()">
         Logout
       </a></li>

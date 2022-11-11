@@ -20,14 +20,15 @@ export class ListItemComponent implements OnInit {
   showTaskForm = false;
   isMenuOpened: boolean = false;
 
+
   constructor(
     private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit(): void {
-    // console.log('list ', this.list)
     this.tasks = this.list.tasks
   }
+
   onDeleteList(){
     console.log('in delete list ', this.list.name)
     this.store.dispatch(new ListActions.DeleteList(this.list._id))

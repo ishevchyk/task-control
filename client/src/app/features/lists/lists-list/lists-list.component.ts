@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
 import * as fromApp from '../../../store/app.reducer';
 import * as ListActions from '../store/list.actions';
 import {Store} from "@ngrx/store";
 import {List} from "../../../shared/models/list.model";
-import {map, Subscription} from "rxjs";
+import {findIndex, map, Subscription} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
+import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
+import {LOGOUT} from "../../../auth/store/auth.actions";
 
 @Component({
   selector: 'app-lists-list',
@@ -19,6 +21,8 @@ export class ListsListComponent implements OnInit {
   boardId: string;
   listsSub: Subscription;
   boardsSub: Subscription;
+
+  draggedEl: HTMLElement
 
   constructor(
     private store: Store<fromApp.AppState>
@@ -42,6 +46,25 @@ export class ListsListComponent implements OnInit {
       this.boardId = board._id
     }
     )
+  }
+
+  @HostListener('dragstart', ['$event'])
+  drag(event: DragEvent) {
+    this.draggedEl = event.target as HTMLElement;
+    console.log(this.draggedEl)
+  }
+
+  @HostListener('dragover', ['$event'])
+  dragEnd(event: DragEvent) {
+    event.preventDefault()
+
+  }
+
+  @HostListener('drop', ['$event'])
+  drop(event: DragEvent) {
+    const container = event.target
+    console.log(container)
+    // this.store.dispatch(new ListActions.DragAndDrop({listId: listId, boardId: this.boardId}))
   }
 
   initForm(){
