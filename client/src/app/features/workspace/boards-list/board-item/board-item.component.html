@@ -5,14 +5,16 @@
   </div>
   <div class="back">
     <div class="back_content" (click)="toBoardPage(board)">
-    <div class="content-text">
-      <span id="descr">Description:</span>
-      <p>{{board.description}}</p>
-      <p><span>#Lists:</span> {{listsLength}}</p>
-      <p class="data-creation">{{boardDate}}</p>
+      <div class="text-badge">
+        <p class="text-badge_item">{{board.description}}</p>
+        <p class="text-badge_item"><span>Lists count:</span> {{listsLength}}</p>
+      </div>
+
+      <div class="bottom-badge">
+        <p class="bottom-badge_date">{{boardDate}}</p>
+        <button class="bottom-badge_btn" (click)="deleteBoard()">x</button>
+      </div>
     </div>
-    <button class="content-btn"(click)="deleteBoard()">remove</button>
-  </div>
   </div>
 </div>
 </div>

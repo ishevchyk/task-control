@@ -1,33 +1,26 @@
-<router-outlet></router-outlet>
-<div class="container">
-  <div class="workspace">
-    <div class="workspace_title">
-      <h3>Workspace</h3>
+ <div class="workspace">
+    <div class="workspace_header">
+      <div class="workspace_header title">
+        <h3>Workspace</h3>
+      </div>
+      <div class="workspace_header actions">
+        <li class="search-action">
+          <input type="text" id="filter" placeholder="Filter by name..." [(ngModel)]="filterValue" (input)="onTextChange()">
+        </li>
+
+        <li class="sort-action">
+          <select id="sort-action" name="sort" class="sort-action_item sort-select" [(ngModel)]="sortValue">
+            <option value="">--Sort by--</option>
+            <option value="name">Name</option>
+            <option value="createdDate">Date</option>
+          </select>
+          <button type="button" class="sort-action_item sort-btn" #asc (click)="changeSortOrder(asc)">ASC</button>
+          <button type="button" class="sort-action_item sort-btn" #desc (click)="changeSortOrder(desc)">DESC</button>
+        </li>
+      </div>
     </div>
-    <div class="workspace_actions">
-      <li class="search-action">
-        <input type="text" id="filter" placeholder="Filter by name..." [(ngModel)]="filterValue" (input)="onTextChange()">
-      </li>
-
-      <li class="sort-action">
-        <select id="sort-action" name="sort" class="sort-action_item sort-select" [(ngModel)]="sortValue">
-          <option value="">--Sort by--</option>
-          <option value="name">Name</option>
-          <option value="createdDate">Date</option>
-        </select>
-        <button type="button" class="sort-action_item sort-btn" #asc (click)="changeSortOrder(asc)">ASC</button>
-        <button type="button" class="sort-action_item sort-btn" #desc (click)="changeSortOrder(desc)">DESC</button>
-      </li>
-
-
+    <div class="workspace_boards">
+      <app-boards-list [searchedBoard]="filterValue" [sortValue]="sortValue" [sortOrder]="sortOrder"></app-boards-list>
     </div>
   </div>
-
-
-
-
-  <div class="workspace-boards">
-    <app-boards-list [searchedBoard]="filterValue" [sortValue]="sortValue" [sortOrder]="sortOrder"></app-boards-list>
-  </div>
-</div>
 

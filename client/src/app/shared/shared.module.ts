@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {PlaceholderDirective} from "./placeholder.directive";
 import {FilterPipe} from "./pipes/filter.pipe";
 import {SortPipe} from "./pipes/sort.pipe";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -13,10 +14,14 @@ import {SortPipe} from "./pipes/sort.pipe";
     SortPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     PlaceholderDirective,
     FilterPipe,
     SortPipe

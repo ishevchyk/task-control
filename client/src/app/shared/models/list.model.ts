@@ -1,6 +1,7 @@
 export class List {
   _id: string;
-  "name": string;
+  cover: string;
+  name: string;
   "tasks": Object[];
   "boardId": string;
   "createdBy": string;
@@ -8,7 +9,8 @@ export class List {
   "updatedAt": string;
   "__v": number
 
-  constructor(name: string) {
+  constructor(name: string, cover: string) {
     this.name = name;
+    this.cover = cover;
   }
 }

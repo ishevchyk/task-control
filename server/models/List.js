@@ -19,7 +19,11 @@ const listsSchema = new mongoose.Schema({
   tasks: [{
     type: Schema.Types.ObjectId,
     ref: 'Task'
-  }]
+  }],
+  cover: {
+    type: String,
+    default: '#add8e6'
+  },
 
 }, {timestamps: {
     createdAt: "createdDate"

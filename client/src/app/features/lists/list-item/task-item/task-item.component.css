@@ -1,0 +1,81 @@
+.task.simpleView, .task.editView {
+  background-color: whitesmoke;
+  border-radius: 8px;
+}
+.task.simpleView .task-header, .task.editView .task-header {
+  height: 4vh;
+  display: flex;
+  justify-content: flex-end;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.task.simpleView .task-header .edit, .task.editView .task-header .edit {
+  display: none;
+  padding: 5px;
+}
+.task.simpleView .task-header .exit, .task.editView .task-header .exit {
+  padding: 5px;
+  color: #613986;
+  font-size: 0.8em;
+  margin: 1px;
+  border: none;
+  background-color: transparent;
+}
+.task.simpleView .task-header .exit:hover, .task.editView .task-header .exit:hover {
+  cursor: pointer;
+}
+.task.simpleView .task-header:hover .edit, .task.editView .task-header:hover .edit {
+  display: inline-block;
+}
+.task.simpleView .task-main, .task.editView .task-main {
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+}
+.task.simpleView .task-main .content input, .task.editView .task-main .content input {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px dotted lightgrey;
+  outline-color: #f1eda5;
+  color: #613986;
+}
+.task.simpleView .task-main .content input:disabled, .task.editView .task-main .content input:disabled {
+  border: none;
+  color: gray;
+  margin: 0;
+}
+.task.simpleView .task-main .comments, .task.editView .task-main .comments {
+  padding-left: 5%;
+  color: gray;
+  font-size: 0.9em;
+}
+.task.simpleView .badges, .task.editView .badges {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+}
+.task.simpleView .badges_date, .task.editView .badges_date {
+  background-color: rgba(245, 245, 245, 0.3);
+  color: rgba(255, 20, 147, 0.41);
+  padding: 4px;
+  font-size: 0.8em;
+}
+.task.simpleView .badges_date:hover, .task.editView .badges_date:hover {
+  background-color: rgba(211, 211, 211, 0.24);
+  border: 1px dotted lightgrey;
+  border-radius: 4px;
+}
+.task.simpleView .badges_button, .task.editView .badges_button {
+  border: none;
+  background-color: transparent;
+}
+.task.simpleView .badges_button:hover, .task.editView .badges_button:hover {
+  cursor: pointer;
+  scale: 110%;
+}
+
+/*# sourceMappingURL=task-item.component.css.map */

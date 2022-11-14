@@ -1,3 +1,81 @@
+.workspace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12%;
+  height: 100%;
+  width: 100vw;
+}
+.workspace_header {
+  justify-self: center;
+  padding: 5% 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+.workspace_header.title {
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  color: deeppink;
+  text-shadow: 0 2px 6px #c17fef;
+}
+.workspace_header.actions {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+  justify-items: center;
+}
+.workspace_header.actions .search-action input {
+  padding: 2%;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1em;
+  border-bottom: 2px solid #f1eda5;
+  color: #c17fef;
+  letter-spacing: 0.05em;
+}
+.workspace_header.actions .search-action input::placeholder {
+  color: #613986;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+.workspace_header.actions .search-action input:focus {
+  outline-color: #f1eda5;
+}
+.workspace_header.actions .search-action input:focus::placeholder {
+  visibility: hidden;
+}
+.workspace_header.actions .sort-action {
+  justify-self: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 5%;
+}
+.workspace_header.actions .sort-action_item {
+  padding: 6px;
+  background-color: transparent;
+  border-radius: 6px;
+}
+.workspace_header.actions .sort-action_item.sort-select {
+  border: 1px solid #f1eda5;
+  color: deeppink;
+  outline-color: deeppink;
+}
+.workspace_header.actions .sort-action_item.sort-btn {
+  border: 1px solid deeppink;
+  color: lightblue;
+}
+.workspace_header.actions .sort-action_item.sort-btn:active {
+  background-color: deeppink;
+}
+.workspace_boards {
+  width: 100%;
+}
+
 .board-page {
   background-color: rgba(241, 237, 165, 0.6);
   display: flex;
@@ -6,31 +84,36 @@
   height: 100%;
   width: 100vw;
 }
-.board-page_title {
+.board-page_header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.board-page_header.title {
   display: flex;
   justify-content: space-between;
-  width: 30vw;
+  width: 60%;
   padding: 1%;
-  font-size: 1.3em;
+  font-size: 1em;
   color: deeppink;
   letter-spacing: 0.1em;
   border: 1px dotted deeppink;
   border-radius: 10px;
 }
-.board-page_title h3 {
+.board-page_header.title h3 {
   width: 100%;
 }
-.board-page_title img:hover {
+.board-page_header.title img:hover {
   cursor: pointer;
   scale: 110%;
 }
-.board-page_form {
+.board-page_header.form {
   display: flex;
   flex-direction: column;
   row-gap: 1vh;
-  width: 30%;
+  width: 60%;
 }
-.board-page_form .form-control {
+.board-page_header.form .form-control {
+  font-size: 1em;
   color: deeppink;
   padding: 2%;
   width: 100%;
@@ -39,21 +122,74 @@
   border: 1px solid #9ec1f4;
   background-color: transparent;
 }
-.board-page_form-actions {
+.board-page_header.form .form-actions {
   display: flex;
   justify-content: flex-end;
   column-gap: 1vw;
 }
-.board-page_form-actions button {
+.board-page_header.form .form-actions button {
   background-color: #9ec1f4;
   color: deeppink;
   border: none;
   border-radius: 4px;
   padding: 2%;
 }
-.board-page_form-actions button:hover {
+.board-page_header.form .form-actions button:hover {
   cursor: pointer;
   scale: 105%;
+}
+.board-page_header.actions {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+  justify-items: center;
+}
+.board-page_header.actions .search-action input {
+  padding: 2%;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1em;
+  border-bottom: 2px solid #f1eda5;
+  color: #c17fef;
+  letter-spacing: 0.05em;
+}
+.board-page_header.actions .search-action input::placeholder {
+  color: #613986;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+.board-page_header.actions .search-action input:focus {
+  outline-color: #f1eda5;
+}
+.board-page_header.actions .search-action input:focus::placeholder {
+  visibility: hidden;
+}
+.board-page_header.actions .sort-action {
+  justify-self: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 5%;
+}
+.board-page_header.actions .sort-action_item {
+  padding: 6px;
+  background-color: transparent;
+  border-radius: 6px;
+}
+.board-page_header.actions .sort-action_item.sort-select {
+  border: 1px solid #f1eda5;
+  color: deeppink;
+  outline-color: deeppink;
+}
+.board-page_header.actions .sort-action_item.sort-btn {
+  border: 1px solid deeppink;
+  color: lightblue;
+}
+.board-page_header.actions .sort-action_item.sort-btn:active {
+  background-color: deeppink;
 }
 
 /*# sourceMappingURL=board-page.component.css.map */

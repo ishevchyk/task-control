@@ -4,8 +4,7 @@ import {AuthGuard} from "../../auth/auth.guard";
 import {NgModule} from "@angular/core";
 import { BoardPageComponent } from "./board-page/board-page.component";
 import { BoardPageResolverService } from "./board-page-resolver.service";
-// import {BoardPageComponent} from "./board-page/board-page.component";
-// import { BoardPageResolverService } from "./board-page-resolver.service";
+import {BoardsListComponent} from "./boards-list/boards-list.component";
 
 const wsRoutes: Routes = [
   {

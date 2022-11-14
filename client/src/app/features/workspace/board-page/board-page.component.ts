@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -8,6 +8,7 @@ import { Board } from 'src/app/shared/models/board.model';
 import * as fromApp from '../../../store/app.reducer'
 import * as WorkspaceActions from '../store/workspace.actions';
 import * as ListActions from '../../lists/store/list.actions';
+import {List} from "../../../shared/models/list.model";
 
 @Component({
   selector: 'app-board-page',
@@ -18,14 +19,11 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
   id: string;
   board: Board;
-  editBoardForm: FormGroup;
-  showForm = false;
+  lists: List[];
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private store: Store<fromApp.AppState>
-  ) { }
+  showForm = false;
+  editBoardForm: FormGroup;
+
 
   ngOnInit() {
     this.route.params.pipe(
@@ -45,7 +43,6 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     ).subscribe(board => {
       this.board = board;
     })
-
     this.store.dispatch(new ListActions.FetchLists(this.board._id))
     this.store.dispatch(new WorkspaceActions.SetActiveBoard(this.board))
   }
@@ -54,10 +51,20 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     this.store.dispatch(new ListActions.ClearLists());
   }
 
+  filterValue: string = '';
+  sortValue: string = '';
+  sortOrder: string = '';
+  @Output() changed: EventEmitter<string> = new EventEmitter<string>()
+
+  onTextChange(){
+    this.changed.emit(this.filterValue)
+  }
+  changeSortOrder(el: HTMLButtonElement){
+    this.sortOrder = el.innerText.toLowerCase()
+  }
 
   initForm() {
     this.showForm = true;
-
     this.editBoardForm = new FormGroup({
       'name': new FormControl(this.board.name),
       'description': new FormControl(this.board.description)
@@ -70,7 +77,11 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   onSubmit(){
     this.showForm = false;
     this.store.dispatch(new WorkspaceActions.EditBoard({id: this.id, updatedBoard: this.editBoardForm.value}))
-
   }
 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private store: Store<fromApp.AppState>
+  ) { }
 }

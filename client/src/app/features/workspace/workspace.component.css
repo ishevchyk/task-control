@@ -1,33 +1,32 @@
-.container {
+.workspace {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 15%;
+  padding: 0 12%;
   height: 100%;
   width: 100vw;
 }
-.container .workspace {
+.workspace_header {
   justify-self: center;
   padding: 5% 0;
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
-  column-gap: 5%;
 }
-.container .workspace_title {
+.workspace_header.title {
   font-size: 2em;
   letter-spacing: 0.1em;
   color: deeppink;
   text-shadow: 0 2px 6px #c17fef;
 }
-.container .workspace_actions {
+.workspace_header.actions {
   width: 100%;
   list-style: none;
   display: grid;
   grid-template-columns: 40% 60%;
   align-items: center;
 }
-.container .workspace_actions .search-action input {
+.workspace_header.actions .search-action input {
   padding: 2%;
   background-color: transparent;
   border: none;
@@ -37,35 +36,42 @@
   color: #c17fef;
   letter-spacing: 0.05em;
 }
-.container .workspace_actions .search-action input::placeholder {
+.workspace_header.actions .search-action input::placeholder {
   color: #613986;
   font-size: 0.8em;
   letter-spacing: 0.1em;
 }
-.container .workspace_actions .search-action input:focus {
+.workspace_header.actions .search-action input:focus {
   outline-color: #f1eda5;
 }
-.container .workspace_actions .search-action input:focus::placeholder {
+.workspace_header.actions .search-action input:focus::placeholder {
   visibility: hidden;
 }
-.container .workspace_actions .sort-action {
+.workspace_header.actions .sort-action {
   justify-self: flex-end;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   column-gap: 5%;
 }
-.container .workspace_actions .sort-action_item {
-  padding: 1%;
+.workspace_header.actions .sort-action_item {
+  padding: 6px;
   background-color: transparent;
+  border-radius: 6px;
 }
-.container .workspace_actions .sort-action_item.sort-select {
-  border: 1px solid deepskyblue;
+.workspace_header.actions .sort-action_item.sort-select {
+  border: 1px solid #f1eda5;
+  color: deeppink;
+  outline-color: deeppink;
 }
-.container .workspace_actions .sort-action_item.sort-btn {
+.workspace_header.actions .sort-action_item.sort-btn {
   border: 1px solid deeppink;
+  color: lightblue;
 }
-.container .workspace-boards {
+.workspace_header.actions .sort-action_item.sort-btn:active {
+  background-color: deeppink;
+}
+.workspace_boards {
   width: 100%;
 }
 

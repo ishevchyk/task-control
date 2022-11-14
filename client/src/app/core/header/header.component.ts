@@ -30,12 +30,9 @@ export class HeaderComponent implements OnInit {
           this.isLoggedIn = !!user;
           this.username = user.username;
         }
-        console.log(this.isLoggedIn)
       })
   }
 
-  onLogout() {
-    this.store.dispatch(new AuthActions.Logout())
-  }
+  onLogout() { this.store.dispatch( new AuthActions.Logout() )}
 
 }

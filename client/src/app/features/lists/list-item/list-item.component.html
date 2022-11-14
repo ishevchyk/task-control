@@ -1,0 +1,46 @@
+<div
+  class="list"
+  [ngStyle]="{'background-color': list.cover}"
+>
+  <div class="list_header">
+    <div class="list_header_title">
+      <p *ngIf="!showListForm" (click)="initListForm()">{{list.name}}</p>
+      <form [formGroup]="editListForm" (ngSubmit)="onListUpdate()" *ngIf="showListForm" class="list_header_form">
+        <input
+          formControlName="name"
+          type="text"
+          id="name"
+          class="form-control"
+        >
+        <button type="button" (click)="initListForm()" class="form-btn">x</button>
+      </form>
+    </div>
+    <div class="list_header_actions">
+      <button (click)="onDeleteList()" type="button" class="action-btn" *ngIf="!showListForm">
+        <img src="https://img.icons8.com/material-sharp/24/ff1493/trash.png" alt=""/>
+      </button>
+      <button type="button" class="action-btn">
+        <img src="https://img.icons8.com/glyph-neue/24/ff1493/archive-folder.png" alt=""/>
+      </button>
+    </div>
+  </div>
+
+  <ul class="list_tasks">
+    <app-task-item *ngFor="let task of tasks | filter: filterValue: 'content' | sort: sortValue: sortOrder" [task]="task"></app-task-item>
+    <div class="list_tasks_actions">
+    <li class="add-task">
+      <button *ngIf="!showTaskForm" type="button" (click)="initTaskForm()" class="add-task_btn">+ Add new task</button>
+      <form [formGroup]="addTaskForm" (ngSubmit)="onAddTask()" *ngIf="showTaskForm" class="add-task_form">
+        <input
+          formControlName="content"
+          type="text"
+          class="form-control"
+        >
+        <button type="button" (click)="initTaskForm()" class="form-btn">x</button>
+      </form>
+    </li>
+      <input class="change-color" type="color" [value]="cover" [(ngModel)]="cover" (input)="onColorChange()">
+    </div>
+  </ul>
+</div>
+

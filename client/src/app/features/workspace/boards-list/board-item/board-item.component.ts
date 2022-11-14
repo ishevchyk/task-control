@@ -19,13 +19,6 @@ export class BoardItemComponent implements OnInit {
   listsLength: number;
   boardDate: string
 
-
-  constructor(
-    private store: Store<fromApp.AppState>,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
-
   ngOnInit(): void {
     this.listsLength = this.board.lists.length;
     this.boardDate = new Date(this.board.createdDate).toLocaleDateString()
@@ -43,5 +36,9 @@ export class BoardItemComponent implements OnInit {
     this.store.dispatch(new WorkspaceActions.DeleteBoard(this.id))
   }
 
-
+  constructor(
+    private store: Store<fromApp.AppState>,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 }

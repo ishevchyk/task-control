@@ -68,6 +68,13 @@
     width: 25%;
     padding: 2%;
   }
+  .container .form_actions_btn:hover {
+    cursor: pointer;
+    scale: 105%;
+  }
+  .container .form_actions_btn:active {
+    background-color: #ca9ac7;
+  }
 }
 
-/*# sourceMappingURL=new-board.component.css.map */
+/*# sourceMappingURL=new-board-item.component.css.map */

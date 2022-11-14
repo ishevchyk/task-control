@@ -44,7 +44,6 @@ const handleError = (errorRes: any) => {
     (typeof errorRes.error === 'string') ? errMsg = errorRes.error : errMsg = errorRes.error.error
     return of(new AuthActions.LoginFail(errMsg));
   }
-
 }
 
 
@@ -63,11 +62,9 @@ export class AuthEffects {
         )
         .pipe(
           map(resData => {
-            console.log(resData)
             return handleAuthentication(resData.email, resData.firstname, resData.lastname, resData.username, resData._id, resData.jwt_token)
           }),
           catchError(errRes => {
-            console.log(errRes)
             return handleError(errRes)
           })
         );
@@ -89,11 +86,9 @@ export class AuthEffects {
         )
         .pipe(
           map(resData => {
-            console.log(resData)
             return new AuthActions.SignupSuccess(resData)
           }),
           catchError(errRes => {
-            console.log(errRes)
             return handleError(errRes)
           })
         )
@@ -161,8 +156,6 @@ export class AuthEffects {
         this.router.navigate(['/']);
       }
     })
-
-
   ), {dispatch: false});
 
   constructor(

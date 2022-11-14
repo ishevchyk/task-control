@@ -3,6 +3,8 @@ export class Task {
   "content": string;
   "listId": string;
   "createdBy": string;
+  "cover": string;
+  "comments": string[];
   "createdDate": string;
   "updatedAt": string;
   "__v": number

@@ -11,7 +11,6 @@ export class AuthComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    // private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit(): void {
@@ -20,8 +19,4 @@ export class AuthComponent implements OnInit {
   onGettingStarted() {
     this.router.navigate(['signup'], {relativeTo: this.route})
   }
-
-  // onSignIn() {
-  //   this.router.navigate(['login'], {relativeTo: this.route})
-  // }
 }

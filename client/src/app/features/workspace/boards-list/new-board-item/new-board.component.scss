@@ -63,7 +63,13 @@
           color: whitesmoke;
           width: 25%;
           padding: 2%;
-
+          &:hover {
+            cursor: pointer;
+            scale: 105%;
+          }
+          &:active{
+            background-color: #ca9ac7;
+          }
         }
       }
     }

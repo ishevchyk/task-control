@@ -11,7 +11,7 @@ const getTasks = async (req, res) => {
     createdBy: userId,
     listId: list._id
   })
-  res.status(200).send({tasks})
+  res.status(200).send(tasks)
 } catch (err) {
   next(err);
 }
@@ -21,7 +21,7 @@ const addTask = async (req, res, next) => {
   try {
     console.log(req.body)
     const {content} = req.body;
-    const list= await List.findById(req.params.listId);
+    const list = await List.findById(req.params.listId);
     if(!list) throw new Error('cannot read board')
     const task = await new Task({
       createdBy: req.user._id,
@@ -79,6 +79,34 @@ const updateTaskById = async (req, res, next) => {
   }
 }
 
+const deleteComment = async (req, res, next) => {
+  try {
+    const {index} = await req.body;
+    let task = await Task.findById(req.params.id);
+
+    let commentsNew = task.comments.filter((com, ind) => {
+      return ind !==  +index
+    });
+    await Task.updateOne({_id: req.params.id}, {
+      $set: {comments: commentsNew}
+    }, {new: true})
+    res.send(task)
+  } catch (err) {
+    next(err);
+  }
+}
+
+const addComment = async (req, res, next) => {
+  try {
+    const comment = await req.body.comment;
+    let task = await Task.findById(req.params.id);
+    await task.updateOne({$push: {comments: comment}})
+    res.send(task)
+  } catch (err) {
+    next(err);
+  }
+}
+
 const getTaskById = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -98,5 +126,7 @@ module.exports = {
   addTask,
   getTaskById,
   deleteTaskById,
-  updateTaskById
+  updateTaskById,
+  addComment,
+  deleteComment
 }

@@ -11,17 +11,29 @@ export const EDIT_LIST = '[List] Edit List';
 export const DELETE_LIST = '[List] Delete List';
 export const START_ADDING_TASK = '[List] Start Adding Task';
 export const ADD_TASK = '[List] Add Task';
+export const EDIT_TASK = '[List] Edit Task';
 export const DELETE_TASK = '[List] Delete Task';
-export const DRAG_AND_DROP = '[List] Drag And Drop';
+
+export const SET_ACTIVE_COMMENTS = '[List] Set Active Comments';
+export const CLEAR_ACTIVE_COMMENTS = '[List] Clear Active Comments';
+export const ADD_COMMENT = '[List] Add Comment';
+export const DELETE_COMMENT = '[List] Delete Comment';
 
 
-export class DragAndDrop implements Action{
-  readonly type = DRAG_AND_DROP;
-  constructor(public payload: {
-    listId: string,
-    boardId: string,
-  }) {
-  }
+export class SetActiveComments implements Action {
+  readonly type = SET_ACTIVE_COMMENTS;
+  constructor(public payload: string[]) {}
+}
+export class ClearActiveComments implements Action {
+  readonly type = CLEAR_ACTIVE_COMMENTS;
+}
+export class AddComment implements Action {
+  readonly type = ADD_COMMENT;
+  constructor(public payload: {taskId: string, comment: { comment: string }}) {}
+}
+export class DeleteComment implements Action {
+  readonly type = DELETE_COMMENT;
+  constructor(public payload: {taskId: string, index: number}) {}
 }
 
 export class FetchLists implements Action {
@@ -51,12 +63,20 @@ export class AddList implements Action{
   constructor(public payload: List) {}
 }
 
+// export class EditList implements Action{
+//   readonly type = EDIT_LIST;
+//   constructor(
+//     public payload: {id: string, list: List}
+//   ) {}
+// }
+
 export class EditList implements Action{
   readonly type = EDIT_LIST;
   constructor(
-    public payload: {id: string, list: List}
+    public payload: {id: string, dataToUp: {}}
   ) {}
 }
+
 export class DeleteList implements Action {
   readonly type = DELETE_LIST;
   constructor(public payload: string) {}
@@ -73,6 +93,13 @@ export class StartAddingTask implements Action{
 export class AddTask implements Action{
   readonly type = ADD_TASK;
   constructor(public payload: Task) {}
+}
+
+export class EditTask implements Action{
+  readonly type = EDIT_TASK;
+  constructor(
+    public payload: {task: Task, dataToUp: {}}
+  ) {}
 }
 
 export class DeleteTask implements Action {
@@ -96,4 +123,9 @@ export type ListActions =
   | EditList
   | DeleteList
   | AddTask
+  | EditTask
   | DeleteTask
+  | SetActiveComments
+  | ClearActiveComments
+  | AddComment
+  | DeleteComment

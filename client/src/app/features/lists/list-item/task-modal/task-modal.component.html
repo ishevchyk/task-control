@@ -1,0 +1,50 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="container">
+<div class="task">
+
+  <div class="task_cover" [ngStyle]="{'background-color': task.cover}">
+    <p>{{task.content}}</p>
+    <div class="task_cover_actions">
+      <button type="button" (click)="onClose()">X</button>
+      <input type="color" [value]="cover" [(ngModel)]="cover" (input)="onColorChange()"/>
+    </div>
+  </div>
+  <div class="task_content">
+    <div class="comments">
+      <h3>Comments</h3>
+      <div *ngFor="let comment of comments; let i = index;" class="comment-group">
+        <input [placeholder]="comment" disabled/>
+        <button
+          type="button"
+          class="comment-group_btn"
+          [ngStyle]="{'color': task.cover, 'border-color': task.cover}"
+          (click)="deleteComment(i)"
+        >
+          &#9003;
+        </button>
+      </div>
+      <div class="comments_actions">
+        <button class="add-action" type="button" *ngIf="!showCommentForm" (click)="initCommentForm()">+ Add comment</button>
+        <form class="add-form" [formGroup]="addCommentForm" (ngSubmit)="onAddComment()" *ngIf="showCommentForm">
+          <input
+            formControlName="comment"
+            type="text"
+            class="form-control"
+          >
+          <button type="button" (click)="initCommentForm()" class="form-btn">x</button>
+        </form>
+
+      </div>
+    </div>
+    <div class="badges">
+        <p class="badges_title">Date of creation:</p>
+        <p class="badges_date" [ngStyle]="{'color': task.cover}">{{creationDate}}</p>
+        <p class="badges_title" >Last update:</p>
+        <p class="badges_date" [ngStyle]="{'color': task.cover}">{{lastUpdateDate}}</p>
+    </div>
+  </div>
+  <div class="task_delete">
+    <button type="button" (click)="onDeleteTask()" [ngStyle]="{'color': task.cover, 'border-color': task.cover}">Delete Task</button>
+  </div>
+</div>
+</div>

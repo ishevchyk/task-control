@@ -34,8 +34,6 @@ export class EditBoard implements Action {
   readonly type = EDIT_BOARD;
   constructor(public payload: {id: string, updatedBoard: Board}) {}
 }
-
-
 export class DeleteBoard implements Action{
   readonly type = DELETE_BOARD;
   constructor(public payload: string) {}
@@ -45,7 +43,6 @@ export class SetActiveBoard implements Action {
   readonly  type = SET_ACTIVE_BOARD;
   constructor(public payload: Board) {}
 }
-
 export class ClearActiveBoard implements Action {
   readonly  type = CLEAR_ACTIVE_BOARD;
 }

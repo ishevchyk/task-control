@@ -19,6 +19,11 @@ const tasksSchema = new mongoose.Schema({
     minLength: 3,
     maxLength: 40
   },
+  cover: {
+    type: String,
+    default: '#d2e86d'
+  },
+  comments: [{type: String}],
 
 }, {timestamps: {
     createdAt: "createdDate"

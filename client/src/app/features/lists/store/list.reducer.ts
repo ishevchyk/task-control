@@ -2,15 +2,45 @@ import {List} from "../../../shared/models/list.model";
 import * as ListActions from "./list.actions";
 
 export interface State {
-  lists: List[]
+  lists: List[],
+  activeComments: string[]
 }
 
 const initialState: State = {
-  lists: []
+  lists: [],
+  activeComments: []
 }
 
 export function listReducer (state: State = initialState, action: ListActions.ListActions ) {
   switch (action.type) {
+    case ListActions.SET_ACTIVE_COMMENTS:
+      return {
+        ...state,
+        activeComments: action.payload
+      }
+
+    case ListActions.CLEAR_ACTIVE_COMMENTS:
+      return {
+        ...state,
+        activeComments: []
+      }
+    case ListActions.ADD_COMMENT:
+      return {
+        ...state,
+        activeComments: [
+          ...state.activeComments,
+          action.payload.comment.comment
+        ]
+
+      }
+    case ListActions.DELETE_COMMENT:
+      return {
+        ...state,
+        activeComments: state.activeComments.filter((comment, index) => {
+          return index !== action.payload.index
+        })
+
+      }
     case ListActions.SET_LISTS:
       return {
         ...state,
@@ -30,12 +60,12 @@ export function listReducer (state: State = initialState, action: ListActions.Li
         ]
       }
     case ListActions.EDIT_LIST:
-      const listIndex = state.lists.findIndex(list => list._id === action.payload.id);
-      const updatedList = {
+      let listIndex = state.lists.findIndex(list => list._id === action.payload.id);
+      let updatedList = {
         ...state.lists[listIndex],
-        ...action.payload.list
+        ...action.payload.dataToUp
       }
-      const updatedLists = [...state.lists];
+      let updatedLists = [...state.lists];
       updatedLists[listIndex] = updatedList;
       return {
         ...state,
@@ -52,38 +82,58 @@ export function listReducer (state: State = initialState, action: ListActions.Li
 
     case ListActions.ADD_TASK:
       const list = state.lists.find(list => list._id === action.payload.listId)
-
       const tasks = [...list.tasks]
       tasks.push(action.payload)
-      const updList = {
+      const listWithUpdatedTasks = {
         ...list,
         tasks: tasks
       }
-      const ind = state.lists.findIndex(list => list._id === action.payload.listId)
-      const ulists = [...state.lists]
-      ulists[ind] = updList
+      const indexOfList = state.lists.findIndex(list => list._id === action.payload.listId)
+      let listsAfter = [...state.lists]
+      listsAfter[indexOfList] = listWithUpdatedTasks
 
       return {
         ...state,
-        lists: ulists
+        lists: listsAfter
+      }
+
+    case ListActions.EDIT_TASK:
+      let listInEdit = state.lists.find(list => list._id === action.payload.task.listId)
+      const listInEditIndex = state.lists.findIndex(list => list._id === action.payload.task.listId);
+      let tasksInEdit = [...listInEdit.tasks];
+      const taskIndex = listInEdit.tasks.findIndex(task => task['_id'] === action.payload.task._id)
+      const updatedTask = {
+        ...tasksInEdit[taskIndex],
+        ...action.payload.dataToUp
+      }
+      tasksInEdit[taskIndex] = updatedTask;
+      listInEdit = {
+        ...listInEdit,
+        tasks: tasksInEdit
+      }
+      let allLists = [...state.lists]
+      allLists[listInEditIndex] = listInEdit
+
+      return {
+        ...state,
+        lists: allLists
       }
 
     case ListActions.DELETE_TASK:
-      const list2 = state.lists.find(list => list._id === action.payload.listId)
-      const task = list2.tasks.find(task => task['_id'] === action.payload.taskId)
-      let tasks2 = [...list2.tasks]
-      tasks2 = [...tasks2.filter(taskI => taskI['_id'] !== task['_id'])]
-      // const list = state.lists.find(list => list._id ===)
-      const updList2 = {
-        ...list2,
-        tasks: tasks2
+      const listToUpdate = state.lists.find(list => list._id === action.payload.listId)
+      const task = listToUpdate.tasks.find(task => task['_id'] === action.payload.taskId)
+      let tasksToLeave = [...listToUpdate.tasks]
+      tasksToLeave = [...tasksToLeave.filter(taskI => taskI['_id'] !== task['_id'])]
+      const listAfter = {
+        ...listToUpdate,
+        tasks: tasksToLeave
       }
-      const ind2 = state.lists.findIndex(list => list._id === action.payload.listId)
-      const ulists2 = [...state.lists]
-      ulists2[ind2] = updList2
+      const listInd = state.lists.findIndex(list => list._id === action.payload.listId)
+      const listsAfterUpdate = [...state.lists]
+      listsAfterUpdate[listInd] = listAfter
       return {
         ...state,
-        lists: ulists2
+        lists: listsAfterUpdate
       }
 
     default:

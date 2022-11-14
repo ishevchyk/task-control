@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { Subscription, map } from 'rxjs';
 import {Board} from "../../../shared/models/board.model";
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../store/app.reducer';
 import {PlaceholderDirective} from "../../../shared/placeholder.directive";
-import {NewBoardComponent} from "./new-board/new-board.component";
+import {NewBoardComponent} from "./new-board-item/new-board.component";
 @Component({
   selector: 'app-boards-list',
   templateUrl: './boards-list.component.html',
@@ -15,21 +15,14 @@ export class BoardsListComponent implements OnInit {
   boards: Board[];
   subscription: Subscription;
 
-  @ViewChild(PlaceholderDirective, {static: false}) newBoardHost: PlaceholderDirective;
-  private closeSub: Subscription;
-
   @Input() searchedBoard: string = '';
-
   @Input() sortValue: string = '';
   @Input() sortOrder: string = '';
 
-
-  constructor(
-    private store: Store<fromApp.AppState>
-  ) { }
+  @ViewChild(PlaceholderDirective, {static: false}) newBoardHost: PlaceholderDirective;
+  private closeSub: Subscription;
 
   ngOnInit(): void {
-    console.log(this.searchedBoard)
     this.subscription = this.store
       .select('workspace')
       .pipe(
@@ -41,23 +34,11 @@ export class BoardsListComponent implements OnInit {
           this.boards = boards;
         }
       )
-
   }
+
   onAddNewBoard(){
     this.showForm()
   }
-
-
-  // onEditBoard(board: Board){
-  //   const viewContainerRef = this.newBoardHost.viewContainerRef;
-  //   const componentRef = viewContainerRef.createComponent(NewBoardComponent);
-  //   componentRef.instance.board = board;
-  //
-  //   this.closeSub = componentRef.instance.close.subscribe(() => {
-  //     this.closeSub.unsubscribe();
-  //     viewContainerRef.clear();
-  //   })
-  // }
 
   private showForm() {
     const viewContainerRef = this.newBoardHost.viewContainerRef;
@@ -69,4 +50,7 @@ export class BoardsListComponent implements OnInit {
     })
   }
 
+  constructor(
+    private store: Store<fromApp.AppState>
+  ) { }
 }

@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {ListsListComponent} from "./lists-list/lists-list.component";
-import {ListItemComponent} from "./lists-list/list-item/list-item.component";
-import { TaskItemComponent } from './lists-list/task-item/task-item.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ListItemComponent} from "./list-item/list-item.component";
+import { TaskItemComponent } from './list-item/task-item/task-item.component';
 import {SharedModule} from "../../shared/shared.module";
-
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import { ListsComponent } from './lists.component';
+import { TaskModalComponent } from './list-item/task-modal/task-modal.component';
 
 
 @NgModule({
   declarations: [
-    ListsListComponent,
     ListItemComponent,
     TaskItemComponent,
+    ListsComponent,
+    TaskModalComponent,
   ],
     imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        SharedModule
+       SharedModule,
+        DragDropModule,
     ],
   exports: [
-    ListsListComponent,
     ListItemComponent,
+    TaskItemComponent,
+    ListsComponent
   ]
 })
 export class ListsModule { }

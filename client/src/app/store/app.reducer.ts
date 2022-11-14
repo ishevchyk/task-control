@@ -13,5 +13,5 @@ export interface AppState {
 export const appReducer: ActionReducerMap<AppState> = {
   auth: fromAuth.authReducer,
   workspace: fromWorkspace.workspaceReducer,
-  list: fromList.listReducer
+  list: fromList.listReducer,
 }

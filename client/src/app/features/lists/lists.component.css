@@ -1,0 +1,57 @@
+.lists {
+  display: flex;
+  padding: 5% 0;
+  height: 100%;
+  overflow: scroll;
+  gap: 1vw;
+}
+.lists_add {
+  width: 20vw;
+  height: 100%;
+  padding: 10px;
+}
+.lists_add_btn {
+  width: 20vw;
+  text-align: left;
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
+  color: #613986;
+  font-size: 1.1em;
+}
+.lists_add_btn:hover {
+  cursor: pointer;
+}
+.lists_add_form {
+  width: 20vw;
+  display: flex;
+  column-gap: 2%;
+  align-items: center;
+  justify-content: center;
+}
+.lists_add_form input {
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 191, 255, 0.31);
+  text-align: left;
+  border-radius: 8px;
+  border: 1px solid deepskyblue;
+  outline-color: deeppink;
+  color: #613986;
+  font-size: 1.1em;
+}
+.lists_add_form input::placeholder {
+  color: rgba(255, 20, 147, 0.49);
+}
+.lists_add_form .form-btn {
+  color: deeppink;
+  padding: 2px;
+  font-size: 1.1em;
+  border: none;
+  background-color: transparent;
+}
+.lists_add_form .form-btn:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=lists.component.css.map */

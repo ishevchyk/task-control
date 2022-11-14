@@ -15,11 +15,9 @@ import {AuthService} from "../auth.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  @ViewChild(PlaceholderDirective, {static: false}) loginAlert: PlaceholderDirective
-  // @ViewChild('loginA', {read: ViewContainerRef}) loginA!: ViewContainerRef
-
   error: string =  null;
+  @ViewChild(PlaceholderDirective, {static: false}) loginAlert: PlaceholderDirective
+
   private storeSub: Subscription;
 
   constructor(

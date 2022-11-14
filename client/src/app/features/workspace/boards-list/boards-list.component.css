@@ -1,7 +1,6 @@
 .boards-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2vh;
   justify-items: center;
   align-items: center;
   width: 100%;

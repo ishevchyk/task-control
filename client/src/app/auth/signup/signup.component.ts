@@ -14,10 +14,9 @@ import {AuthService} from "../auth.service";
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  error: string =  null;
   @ViewChild(PlaceholderDirective, {static: false}) signupAlert: PlaceholderDirective
 
-  error: string =  null;
   private storeSub: Subscription;
 
   constructor(

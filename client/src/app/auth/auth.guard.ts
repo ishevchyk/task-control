@@ -11,8 +11,6 @@ import {map, Observable, take} from "rxjs";
 
 import * as fromApp from '../store/app.reducer'
 
-
-console.log('guard')
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate{
   constructor(
@@ -32,9 +30,7 @@ export class AuthGuard implements CanActivate{
           return authState.user
         }),
         map(user => {
-          console.log(user)
           const isAuthenticated = !!user;
-          console.log(isAuthenticated)
           if(isAuthenticated) {
             return true;
           }

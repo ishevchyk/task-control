@@ -1,0 +1,142 @@
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(97, 57, 134, 0.32);
+  z-index: 50;
+}
+.container{
+  width: 45%;
+  height: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background: whitesmoke;
+  border-radius: 10px;
+  .task{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 20% 65% 15%;
+    &_cover{
+      //height: 10vh;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      display: grid;
+      grid-template-columns: 90% 10%;
+      p{
+        align-self: center;
+        font-size: 2em;
+        color: whitesmoke;
+        padding-left: 15%;
+      }
+      &_actions{
+        align-self: flex-end;
+        justify-self: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5% 0;
+        input, button{
+          background-color: transparent;
+          border: none;
+          &:hover{
+            cursor: pointer;
+            scale: 110%;
+          }
+        }
+        button{
+          color: rgba(245, 245, 245, 0.6);
+          padding: 10%;
+          font-size: 1.8em;
+        }
+      }
+    }
+    &_content{
+      align-self: center;
+      justify-self: center;
+      width: 90%;
+      display: grid;
+      grid-template-columns: 60% 30%;
+      gap: 10%;
+      .comments {
+        color: lightblue;
+        display: flex;
+        flex-direction: column;
+        .comment-group, .add-form {
+          display: grid;
+          width: 100%;
+          grid-template-columns: 90% 10%;
+          gap: 1%;
+          margin: 1%;
+          input{
+            border: 1px solid lightblue;
+            padding: 2%;
+            border-radius: 4px;
+          }
+
+          &_btn{
+            border: 1px solid;
+            &:hover{
+              cursor: pointer;
+            }
+          }
+        }
+        &_actions{
+          .add-action{
+            border: none;
+            background-color: transparent;
+            color: lightblue;
+            font-size: 1em;
+            padding: 2%;
+            &:hover{
+              cursor: pointer;
+            }
+          }
+          button{
+            border: 1px solid lightblue;
+            color: lightblue;
+            &:hover{
+              cursor: pointer;
+            }
+          }
+        }
+
+      }
+      .badges{
+        &_title{
+          font-size: 1em;
+          color: lightblue;
+        }
+        &_date{
+          font-size: .8em;
+        }
+      }
+    }
+    &_delete{
+      justify-self: center;
+      width: 100%;
+      button{
+        padding: 5%;
+        width: 100%;
+        font-size: 1.2em;
+        border: 1px solid;
+        background-color: whitesmoke;
+        &:hover{
+          cursor: pointer;
+          scale: 101%;
+        }
+      }
+    }
+
+  }
+
+
+
+
+}

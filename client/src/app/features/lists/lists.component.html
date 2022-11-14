@@ -1,0 +1,17 @@
+<div class="lists"
+  cdkDropList
+  [cdkDropListData]="lists"
+  (cdkDropListDropped)="drop($event)">
+  <app-list-item *ngFor="let list of lists" [filterValue]="filterValue" [sortValue]="sortValue" [sortOrder]="sortOrder" [list]="list" [id]="list._id" cdkDrag></app-list-item>
+  <div class="lists_add">
+    <button type="button" *ngIf="!showForm" (click)="initNewListForm()" class="lists_add_btn"> + Add another list</button>
+    <form [formGroup]="addListForm" (ngSubmit)="onSubmit()" *ngIf="showForm" class="lists_add_form">
+        <input
+          type="text"
+          placeholder="Enter list title"
+          formControlName="name"
+        >
+        <button type="button" class="form-btn" (click)="hideForm()">X</button>
+    </form>
+  </div>
+</div>

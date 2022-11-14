@@ -17,7 +17,6 @@ export function authReducer (
 ){
   switch (action.type){
     case AuthActions.LOGIN_SUCCESS:
-      console.log('User login suc ', state.user)
       const user = new User(
         action.payload.id,
         action.payload.email,
@@ -42,7 +41,6 @@ export function authReducer (
         authError: null
       }
     case AuthActions.LOGOUT:
-      console.log('User log out ', state.user)
       return {
         ...state,
         user: null,

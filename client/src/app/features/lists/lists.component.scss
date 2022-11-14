@@ -1,0 +1,58 @@
+.lists{
+  display: flex;
+  padding: 5% 0;
+  //justify-content: space-between;
+  height: 100%;
+  overflow: scroll;
+  gap: 1vw;
+  //width: 100%;
+  &_add{
+    width: 20vw;
+    height: 100%;
+    padding: 10px;
+    &_btn{
+      width: 20vw;
+      text-align: left;
+      border-radius: 8px;
+      border: none;
+      background-color: transparent;
+      color: #613986;
+      font-size: 1.1em;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    &_form{
+      width: 20vw;
+      display: flex;
+      column-gap: 2%;
+      align-items: center;
+      justify-content: center;
+      input{
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 191, 255, 0.31);
+        text-align: left;
+        border-radius: 8px;
+        border: 1px solid deepskyblue;
+        outline-color: deeppink;
+        color: #613986;
+        font-size: 1.1em;
+        &::placeholder{
+          color: rgba(255, 20, 147, 0.49);
+        }
+      }
+      .form-btn{
+        color: deeppink;
+        padding: 2px;
+        font-size: 1.1em;
+        border: none;
+        background-color: transparent;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+}

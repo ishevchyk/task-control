@@ -1,0 +1,118 @@
+@charset "UTF-8";
+.list {
+  width: 20vw;
+  border: 1px dotted deeppink;
+  border-radius: 8px;
+  overflow-y: scroll;
+}
+.list_header {
+  display: flex;
+  justify-content: space-between;
+  color: #613986;
+  padding: 3%;
+}
+.list_header_title {
+  font-size: 1.2em;
+}
+.list_header_form {
+  display: flex;
+}
+.list_header_form .form-control {
+  width: 100%;
+  padding: 5px;
+  background-color: transparent;
+  outline-color: #f1eda5;
+  text-align: left;
+  border-radius: 6px;
+  border: 1px solid deepskyblue;
+  color: deeppink;
+  font-size: 1em;
+}
+.list_header_form .form-btn {
+  padding: 4px;
+  border: none;
+  color: deeppink;
+  font-size: 1.2em;
+  background-color: transparent;
+}
+.list_header_form .form-btn:hover {
+  cursor: pointer;
+}
+.list_header_actions {
+  display: flex;
+}
+.list_header_actions .action-btn {
+  background-color: transparent;
+  border: none;
+}
+.list_header_actions .action-btn:hover {
+  cursor: pointer;
+}
+.list_tasks {
+  list-style: none;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3% 3%;
+  gap: 1vh;
+  width: 100%;
+  height: 100%;
+}
+.list_tasks_actions {
+  display: flex;
+  justify-content: space-between;
+}
+.list_tasks_actions .add-task_btn {
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+  color: #613986;
+}
+.list_tasks_actions .add-task_btn:hover {
+  cursor: pointer;
+}
+.list_tasks_actions .add-task_form {
+  display: flex;
+}
+.list_tasks_actions .add-task_form .form-control {
+  width: 100%;
+  padding: 5px;
+  background-color: rgba(173, 216, 230, 0.67);
+  border: 1px solid whitesmoke;
+  text-align: left;
+  border-radius: 6px;
+  font-size: 0.9em;
+  outline-color: #613986;
+  color: #613986;
+}
+.list_tasks_actions .add-task_form .form-btn {
+  padding: 4px;
+  border: none;
+  color: #613986;
+  font-size: 1em;
+  background-color: transparent;
+}
+.list_tasks_actions .add-task_form .form-btn:hover {
+  cursor: pointer;
+}
+.list_tasks_actions .change-color {
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
+.list_tasks_actions .change-color:hover {
+  cursor: pointer;
+  scale: 110%;
+}
+.list_tasks_actions .change-color:hover:before {
+  content: "🖍";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+}
+
+/*# sourceMappingURL=list-item.component.css.map */

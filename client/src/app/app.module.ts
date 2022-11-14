@@ -1,25 +1,25 @@
-import { HttpClientModule } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { environment } from 'src/environments/environment';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthEffects } from './auth/store/auth.effects';
-
-import * as fromApp from './store/app.reducer';
 import {CoreModule} from "./core/core.module";
-import { ProfileComponent } from './features/profile/profile.component';
-import {WorkspaceEffects} from "./features/workspace/store/workspace.effects";
-import {ListEffects} from "./features/lists/store/list.effects";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TokenInterceptorService} from "./shared/token-interceptor.service";
+
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { WorkspaceEffects } from "./features/workspace/store/workspace.effects";
+import { AuthEffects } from './auth/store/auth.effects';
+import { ListEffects } from "./features/lists/store/list.effects";
+import * as fromApp from './store/app.reducer';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProfileComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +29,13 @@ import {ListEffects} from "./features/lists/store/list.effects";
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects, WorkspaceEffects, ListEffects]),
     StoreDevtoolsModule.instrument({logOnly: environment.production}),
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   exports: [
   ],
   bootstrap: [AppComponent]

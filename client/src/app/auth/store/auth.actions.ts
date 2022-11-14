@@ -11,23 +11,25 @@ export const LOGOUT = '[Auth] Logout';
 
 export class SignupStart implements Action {
   readonly type = SIGNUP_START;
-  constructor(public payload: {firstname: string, lastname: string, username: string,email: string; password: string}) {}
+  constructor(
+    public payload: {
+      firstname: string;
+      lastname: string;
+      username: string;
+      email: string;
+      password: string;
+    }
+    ) {}
 }
-
 export class SignupSuccess implements Action {
   readonly type = SIGNUP_SUCCESS;
-  constructor(
-    public payload: { message: string }
-  ) {}
+  constructor(public payload: { message: string }) {}
 }
 
 export class LoginStart implements Action {
   readonly type = LOGIN_START;
-  constructor(
-    public payload: { email: string; password: string }
-  ) {}
+  constructor(public payload: { email: string; password: string }) {}
 }
-
 export class LoginSuccess implements Action {
   readonly type = LOGIN_SUCCESS;
   constructor(
@@ -42,10 +44,8 @@ export class LoginSuccess implements Action {
     }
   ) {}
 }
-
 export class LoginFail implements Action {
   readonly type = LOGIN_FAIL;
-
   constructor(public payload: string) {}
 }
 

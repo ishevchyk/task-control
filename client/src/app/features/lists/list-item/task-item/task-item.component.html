@@ -1,0 +1,29 @@
+<ng-template placeholder></ng-template>
+<li [ngClass]="!editTask ? 'simpleView' : 'editView'" class="task">
+    <div class="task-header" [ngStyle]="{'background-color': task.cover}">
+        <img src="https://img.icons8.com/sf-black-filled/32/9ec1f4/edit.png" alt="" class="edit" *ngIf="!editTask" (click)="onStartEditTask()"/>
+        <button type="button" (click)="onStartEditTask()" *ngIf="editTask" class="exit">DONE</button>
+    </div>
+    <div class="task-main">
+<!--      <div class="content">-->
+      <form class="content" #editTaskForm="ngForm" (ngSubmit)="onEditTask(editTaskForm)">
+        <input
+          [disabled]="!editTask"
+          [autofocus]="editTask"
+          name="content"
+          [ngModel]="task.content"
+          #content="ngModel"
+        >
+      </form>
+<!--      </div>-->
+      <div class="comments">
+        <p *ngIf="!editTask">Comments: {{commentsLength}}</p>
+      </div>
+    </div>
+      <div class="badges">
+        <p class="badges_date">{{taskDate}}</p>
+        <button type="button" class="badges_button">
+          <img src="https://img.icons8.com/sf-ultralight-filled/25/ff1493/menu-2.png" alt="" (click)="openTaskModal(task)"/>
+        </button>
+      </div>
+</li>

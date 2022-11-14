@@ -15,6 +15,10 @@ export class WorkspaceComponent implements OnInit {
     private store: Store<fromApp.AppState>
   ) { }
 
+  ngOnInit(){
+    this.store.dispatch(new DashboardActions.FetchBoards())
+  }
+
   filterValue: string = '';
   sortValue: string = '';
   sortOrder: string = '';
@@ -22,15 +26,9 @@ export class WorkspaceComponent implements OnInit {
 
   onTextChange(){
     this.changed.emit(this.filterValue)
-    console.log(this.filterValue)
   }
   changeSortOrder(el: HTMLButtonElement){
     this.sortOrder = el.innerText.toLowerCase()
-  }
-
-
-  ngOnInit(){
-    this.store.dispatch(new DashboardActions.FetchBoards())
   }
 
 }
